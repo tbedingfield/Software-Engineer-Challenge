@@ -13,7 +13,17 @@
 	  body {
 		  padding: 30px;
 	  }
+	  
+	  .jumbotron {
+		  background-color: white;
+	  }
+	  
+	  .line {
+		  border-bottom: 1px solid gray;
+	  }
 	  </style>
+	  
+	  
   
   </head>
   <body>
@@ -26,15 +36,16 @@
 	    </div>
 -->
 	    
-<table class="m-team-list" id="pnlTeamTable">
-<thead>
-<tr style="white-space:nowrap;">
-<th>Name &amp; Access</th>
-<th style="" class="tdCompany">Main Location</th>
-<th class="actions u-textRight">Actions</th>
+<table class="m-team-list col-sm-12 col-md-12 col-lg-12" id="pnlTeamTable">
+<thead style="background-color: #aaaaaa;">
+<tr>
+<th style="text-align: left;">Name &amp; Access</th>
+<th style="text-align: left;" class="tdCompany">Main Location</th>
+<th class="actions u-textRight" style="">Actions</th>
 </tr>
 </thead>
 <tbody class="user-list">
+	
 </tbody>
 </table>
 
@@ -178,19 +189,22 @@ for(let user of users) {
 	}
 
 	const userData = document.createElement('tr');
-    userData.innerHTML = `<td>
-<div>
-<img alt="${user.displayName}" src="${user.photoUrl}" class="m-team-photo">
+	userData.classList.add('line');
+    userData.innerHTML = `<td style="width:40%;">
+<div class="col-sm-2 col-md-2 col-lg-2" style="float:left;">
+<img alt="${user.displayName}" src="${user.photoUrl}" class="m-team-photo" width="100%">
 </div>
-<div>
+<div class="col-sm-6 col-md-6 col-lg-6" style="float:left;position:relative;display:table;">
+<div style="position:relative;display:table;vertical-align:middle;">
 <div class="m-team-name">${user.displayName}</div>
 <p class="gray text--small margin-none">
 ${userRole()}
 </p>
 </div>
+</div>
 </td>
-<td class="text--small tdCompany" style="display: table-cell;">${userLocation()}</td>
-<td width="155">
+<td class="text--small tdCompany" style="display:table-cell;width:40%;text-align:left;">${userLocation()}</td>
+<td style="width:20%;">
 <div class="btn-group u-pullRight">
 <a href="#team/15" class="btn btn-default btn-sm view-btn">View</a>
 </div>
