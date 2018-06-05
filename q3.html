@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Shift Check</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+
+    <style>
+        body {
+            padding: 50px;
+        }
+        h2 {
+            margin-bottom: 35px;
+        }
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+          <h2 class="text-center col-12">Schedule Shift</h2>
+      </div>
+       <form class="row">
+           <div class="form-group col-6">
+               <label for="startDatetime">Start</label>
+               <input id="startDatetime" class="form-control" type="datetime-local">
+           </div>
+           <div class="form-group col-6">
+               <label for="endDatetime">End</label>
+               <input id="endDatetime" class="form-control" type="datetime-local">
+           </div>
+           <div class="form-group col-12 text-right">
+               <button type="submit" id="smit" class="btn btn-primary">Submit</button>
+           </div>
+       </form>
+       <div class="row">
+           <h3 class="col-12">Meesage Log</h3>
+           <div class="col-12 message_box">
+	           <div class="col-12 time_box"></div>
+           </div>
+           
+       </div>
+    </div>
+
+    <script>
+
+        const objRoster1 = {
+            Id: 1,
+            Employee: 1,
+            Department: 1,
+            StartTime: 1508450400,
+            EndTime: 1508479200
+        };
+        const startTime = new Date( objRoster1.StartTime *1000);
+        const endTime = new Date( objRoster1.EndTime *1000);
+        
+        const smit = document.querySelector('button');
+        const messageBox = document.querySelector('.message_box');
+        const timeBox = document.querySelector('.time_box');
+        const successMessage = document.createElement("div");
+        const warningMessage = document.createElement("div");
+        const goodTime = document.createElement("div");
+        const badTime = document.createElement("div");
+
+        warningMessage.appendChild(document.createTextNode('Time is overlapping! Please select new times.'));
+
+        successMessage.appendChild(document.createTextNode('Time is clear! Shift submitted.'));
+        
+        
+
+//         Prints Current Roster Dates
+//         document.write(startTime.toGMTString()+"<br>"+startTime.toLocaleString()+"<br>"+endTime.toGMTString()+"<br>"+endTime.toLocaleString());
+
+        function capture(e) {
+            e.preventDefault();
+            let start = document.getElementById("startDatetime").value;
+            let end = document.getElementById("endDatetime").value;
+
+            start = new Date(start).getTime()/1000.0;
+            end = new Date(end).getTime()/1000.0;
+
+            console.log(start);
+            console.log(end);
+            
+            
+
+            const objRoster2 = {
+                Id: 1,
+                Employee: 1,
+                Department: 1,
+                StartTime: start,
+                EndTime: end
+            };
+
+            console.log(objRoster2);
+            
+            const startTime2 = new Date( objRoster2.StartTime *1000);
+        const endTime2 = new Date( objRoster2.EndTime *1000);
+
+             // time of first timespan
+            const x = objRoster2.StartTime;
+            const y = objRoster2.EndTime;
+
+            // time of second timespan
+            const a = objRoster1.StartTime;
+            const b = objRoster1.EndTime;
+
+            if (Math.min(x, y) <= Math.max(a, b) && Math.max(x, y) >= Math.min(a, b)) {
+                messageBox.appendChild(warningMessage);
+                messageBox.classList.add('alert', 'alert-warning');
+//                 warningMessage.classList.add('alert', 'alert-warning');
+               messageBox.innerHTML = ('Time is overlapping! Please select new times.' + "<br>" + startTime.toGMTString()+"-"+endTime.toLocaleString());                
+            }
+            else {
+                console.log('Time is Clear');
+                 messageBox.appendChild(successMessage);
+                 messageBox.classList.add('alert', 'alert-success');
+//                  timeBox.innerHTML = s + '-' + t;
+                  messageBox.innerHTML = ('Time is clear! Shift submitted.' + "<br>" + startTime2.toGMTString()+"-"+endTime2.toLocaleString());
+                 
+                 
+            }
+
+        }
+
+        smit.addEventListener("click", capture, true);
+
+    </script>
+
+  </body>
+</html>

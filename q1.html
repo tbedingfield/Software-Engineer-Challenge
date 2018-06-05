@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <title>getting started</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  
+  <style>
+	  body {
+/* 		  padding: 30px; */
+	  }
+	  
+	  header {
+	  	  background-color: #00a1dd;
+		  height: 80px;
+	  }
+	  #logo {
+		  position: relative;
+		  padding: 20px;
+		  
+	  }
+	  #form {
+		  position: relative;
+		  margin: 0 auto;
+		  background-color: #ffffff;
+		  border: 1px solid gray;
+		  -webkit-box-shadow: 10px 10px 5px -9px rgba(207,207,207,1);
+		  -moz-box-shadow: 10px 10px 5px -9px rgba(207,207,207,1);
+		  box-shadow: 10px 10px 5px -9px rgba(207,207,207,1);
+		  margin-top: 20px;
+	  }
+	  
+	  .legal{
+		position: relative;
+		  margin: 40px auto 0;  
+		  
+	  }
+	  
+	  #logIn {
+		  width: 100%;
+		  
+	  }
+	  .fb-btn {
+		  width: 100%;
+		   padding: .175rem .75rem;
+		    background-color: #3b5998;
+		    margin-bottom: 0px;
+	  }
+	  .g-btn {
+		  width: 100%;
+		  padding: .175rem .75rem;
+		  background-color: #4885ed;
+	  }
+
+
+	  .mobileBtn {
+		  
+		  position: relative;
+		  display: block;
+		  float: left;
+	  }
+	  
+	  .mobileBtn.right {
+		  padding: 0 5px 0 0;
+	  }
+	  
+	  .mobileBtn.left {
+		  padding: 0 0 0 5px;
+	  }
+	  
+	  #altLogin {
+		  height: 40px;
+		  margin-top: 20px;
+	  }
+	  
+	  hr {
+		 margin-top: 0;
+	  }
+	  
+	  @media only screen and (max-width: 767px) {
+		
+		.mobileBtn {
+		  float: none ;
+		  }
+		  
+		  .fb-btn {
+		  width: 100%;
+		   padding: .175rem .75rem;
+		    background-color: #3b5998;
+		    margin-bottom: 10px;
+	  }
+		  
+		.mobileBtn.right {
+		  padding: 0 0px 0 0;
+	  }
+	  
+	  .mobileBtn.left {
+		  padding: 0 0 0 0px;
+	  }  
+	  
+	  #altLogin {
+	  height: 90px;
+	    }
+	  }
+	  
+	  </style>
+  
+  </head>
+  <body>
+	  
+	  <header>
+		   <img id="logo" src="img/logo.png" />
+	  </header>
+    
+    <div>
+    <div id="form" class="jumbotron col-sm-4 col-md-4 col-lg-3">
+	    
+	    
+	    <form style="position: relative;display: block;">
+  <div class="form-group">
+	  <div class="col-sm-12 col-md-12 col-lg-12" style="padding: 0;position: relative;display: block;"> 
+		  <div class="col-sm-6 col-md-6 col-lg-6" style="padding: 0;position: relative;display: block;float: left;">
+    <label for="exampleInputEmail1">Email address</label>
+	  </div>
+	  <div class="col-sm-6 col-md-6 col-lg-6" style="padding: 0;position: relative;display: block;float: left;text-align: right;">
+    <a href="#">Not Verified?</a>
+	  </div>
+	  </div>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+   
+  </div>
+  <div class="form-group">
+     <div class="col-sm-12 col-md-12 col-lg-12" style="padding: 0;position: relative;display: block;"> 
+		  <div class="col-sm-6 col-md-6 col-lg-6" style="padding: 0;position: relative;display: block;float: left;">
+    <label for="exampleInputEmail1">Password</label>
+	  </div>
+	  <div class="col-sm-6 col-md-6 col-lg-6" style="padding: 0;position: relative;display: block;float: left;text-align: right;">
+    <a href="#">Forgot Password?</a>
+	  </div>
+     </div>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <button id="logIn" type="submit" class="btn btn-primary">Log in</button>
+  
+   
+	    </form>
+	    
+	    <div>
+	    <small class="text-center" style="position: relative;display: block;margin: 0 auto;margin-top: 20px;">
+  Or login with:
+  </small>
+  <hr />
+		 
+		 <div id="altLogin" class="col-sm-12 col-md-12 col-lg-12 " style="padding: 0;position: relative;display: block;"> 
+		  <div class="col-sm-12 col-md-6 col-lg-6 mobileBtn right">
+ <button type="facebook" class="btn btn-primary fb-btn" >Facebook</button>
+		  </div>
+		  
+
+		 <div class="col-sm-12 col-md-6 col-lg-6 mobileBtn left">
+		     <button type="google" class="btn btn-primary g-btn" >Google</button>
+		 </div>
+		 </div>
+	    </div>
+	    
+
+    </div>
+    
+    <div class="legal col-sm-4 col-md-4 col-lg-3 text-center">
+	    <p>Don't have a Deputy account?<br />
+	    <a href="#">Sign Up now</a> Or join with <a href="#">third party service.</a></p>
+    </div>
+    
+    </div>
+    
+    
+    
+    
+    
+    <script>
+	  
+	    
+	</script>
+    
+  </body>
+</html>

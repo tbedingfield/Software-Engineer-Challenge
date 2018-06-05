@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Shift Check</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+
+    <style type="text/css">
+        body {
+            padding: 50px;
+        }
+        h2 {
+            margin-bottom: 35px;
+        }
+        select {
+            cursor: pointer;
+        }
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+     <div class="row">
+         <div class="col-12">
+             <h2>Subordinate Output</h2>
+         </div>
+     </div>
+      <div class="row">
+          <div class="col-6 select_box input-group">
+
+          </div>
+          <div class="col-6 message_box">
+
+          </div>
+      </div>
+      
+      
+      <div id="userTable" class="jumbotron text-center">
+      <table class="m-team-list" id="pnlTeamTable">
+<thead>
+<tr style="white-space:nowrap;">
+<th>Subordinate</th>
+</tr>
+</thead>
+<tbody class="user-list">
+</tbody>
+</table>
+      </div>
+
+
+
+    </div>
+
+    <script>
+	    const userList = document.querySelector(".user-list");
+        const selectBox = document.querySelector('.select_box');
+        const messageBox = document.querySelector('.message_box');
+        const jsnUserArray = [
+            {
+                id: 1,
+                name: 'Adam Admin',
+                role: 1
+            },
+            {
+                id: 2,
+                name: 'Emily Employee',
+                role: 4
+            },
+            {
+                id: 3,
+                name: 'Sam Supervisor',
+                role: 3
+            },
+            {
+                id: 4,
+                name: 'Mary Manager',
+               role: 2
+            },
+            {
+                id: 5,
+                name: 'Lowly Troy',
+               role: 8
+            }
+        ];
+        const users = jsnUserArray;
+        const selectList = document.createElement("select");
+        selectList.id = "userSelect";
+        selectList.classList.add('custom-select')
+        selectBox.appendChild(selectList);
+        let optionInital = document.createElement("option");
+        optionInital.text = 'Select Employee';
+        selectList.appendChild(optionInital);
+
+         for(let user of users) {
+             let option = document.createElement("option");
+             option.value = user.role;
+             option.text = user.name;
+             selectList.appendChild(option);
+         }
+
+        function getSub() {
+            let value = selectList.options[selectList.selectedIndex].value;
+            let subsList =[];
+            let roleList = [];
+            userList.innerHTML = '';
+
+            for(let user of users) {
+                roleList.push(user.role);
+            }
+            let lowestRole = Math.max(...roleList);
+            for(let user of users) {
+                if( user.role > value) {
+                    subsList.push(`&nbsp;` + user.name);
+                }
+                else if (value == lowestRole) {
+                    subsList = ['Employee has no subordinate'];
+                }
+            }
+            
+            
+            
+            for(let sub of subsList) {
+	    
+					const userData = document.createElement('tr');
+				    userData.innerHTML = `<td>
+				<div>
+				<img alt="" src="" class="m-team-photo">
+				</div>
+				<div>
+				<div class="m-team-name">${sub}</div>
+				<p class="gray text--small margin-none">
+				
+				</p>
+				</div>
+				</td>
+				<td class="text--small tdCompany" style="display: table-cell;"></td>
+				<td width="155">
+				<div class="btn-group u-pullRight">
+				<a href="#team/15" class="btn btn-default btn-sm view-btn">View</a>
+				</div>
+				</td>
+				</tr>
+				    `;
+				    userList.appendChild(userData);	
+				 	
+				}
+
+//             messageBox.innerHTML = subsList;
+        }
+
+        selectList.addEventListener('input', getSub);
+
+    </script>
+
+  </body>
+</html>

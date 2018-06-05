@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <title>getting started</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  
+  <style>
+	  body {
+		  padding: 30px;
+	  }
+	  </style>
+  
+  </head>
+  <body>
+    
+    <div id="userTable" class="jumbotron text-center">
+	    
+<!--
+	    <div class="user-list">
+		    
+	    </div>
+-->
+	    
+<table class="m-team-list" id="pnlTeamTable">
+<thead>
+<tr style="white-space:nowrap;">
+<th>Name &amp; Access</th>
+<th style="" class="tdCompany">Main Location</th>
+<th class="actions u-textRight">Actions</th>
+</tr>
+</thead>
+<tbody class="user-list">
+</tbody>
+</table>
+
+	
+<!--
+<table class="m-team-list" id="pnlTeamTable">
+<thead>
+<tr style="white-space:nowrap;">
+<th>Name &amp; Access</th>
+<th style="" class="tdCompany">Main Location</th>
+<th class="actions u-textRight">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<div>
+<img alt="Anna Karenina" src="https://d11hmzhsuwuq9f.cloudfront.net/A+K/135/135" class="m-team-photo">
+</div>
+<div>
+<div class="m-team-name">Anna Karenina</div>
+<p class="gray text--small margin-none">Employee</p>
+</div>
+</td>
+<td class="text--small tdCompany" style="display: table-cell;">Potts Point</td>
+<td width="155">
+<div class="btn-group u-pullRight">
+<a href="#team/15" class="btn btn-default btn-sm view-btn">View</a>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div>
+<img alt="Jose Carreras" src="https://d11hmzhsuwuq9f.cloudfront.net/J+C/135/135" class="m-team-photo">
+</div>
+<div>
+<div class="m-team-name">Jose Carreras</div>
+<p class="gray text--small margin-none">Employee</p>
+</div>
+</td>
+<td class="text--small tdCompany" style="display: table-cell;">Lannister</td>
+<td width="155">
+<div class="btn-group u-pullRight">
+<a href="#team/14" class="btn btn-default btn-sm view-btn">View</a>
+</div>
+</td>
+</tr>
+</tbody>
+-->
+
+    </div>
+    
+    
+    
+    
+    
+    <script type="text/x-javascript" language="javascript">
+	    
+const userList = document.querySelector(".user-list");
+	   
+	    
+	    
+	    
+	    
+const jsnUserArray = [{ id: 14, 
+displayName: 'Jose Carreras', 
+location: 2, 
+role: 55, 
+photoUrl:
+'https://d11hmzhsuwuq9f.cloudfront.net/J+C/135/135'
+}
+, { id: 15, 
+displayName: 'Anna Karenina', 
+location: 1, 
+role: 55, 
+photoUrl:
+'https://d11hmzhsuwuq9f.cloudfront.net/A+K/135/135'
+}];
+
+
+const jsnRoleArray = [{ id: 3, 
+name: 'System Administrator', 
+parentRole: 0
+}
+, { id: 5, 
+name: 'Supervisor', 
+parentRole: 61
+}
+, { id: 55, 
+name: 'Employee', 
+parentRole: 5
+}
+, { id: 61, 
+name: 'Location Manager', 
+parentRole: 3
+}];
+
+
+const jsnLocationArray = [
+{ id: 1
+, name: 'Potts Point'
+}
+, { id: 2
+, name: 'Lannister'
+} ];
+
+
+
+	const users = jsnUserArray;
+	const roles = jsnRoleArray;
+const locations = jsnLocationArray;
+
+	    
+for(let user of users) {
+	
+	for(let role of roles) {
+	    
+		    if (user.role === role.id) {
+			    const roleUser = role.name;
+			    function userRole(){
+				   return roleUser;  
+			    }
+			
+		}
+	
+	
+		
+		
+	}
+	 
+
+	for(let location of locations) {
+		if (user.location === location.id) {
+			const locationUser = location.name;
+			    function userLocation(){
+				   return locationUser;  
+			    }
+			
+			}
+	}
+
+	const userData = document.createElement('tr');
+    userData.innerHTML = `<td>
+<div>
+<img alt="${user.displayName}" src="${user.photoUrl}" class="m-team-photo">
+</div>
+<div>
+<div class="m-team-name">${user.displayName}</div>
+<p class="gray text--small margin-none">
+${userRole()}
+</p>
+</div>
+</td>
+<td class="text--small tdCompany" style="display: table-cell;">${userLocation()}</td>
+<td width="155">
+<div class="btn-group u-pullRight">
+<a href="#team/15" class="btn btn-default btn-sm view-btn">View</a>
+</div>
+</td>
+</tr>
+    `;
+    userList.appendChild(userData);	
+    
+   
+	
+	
+}
+
+
+
+
+
+
+// console.log(jsnUserArray);
+
+
+                            
+                            
+
+
+	    
+	</script>
+    
+  </body>
+</html>
