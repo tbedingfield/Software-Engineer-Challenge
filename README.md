@@ -1,6 +1,6 @@
 # Software Engineer Challenge
 
-PART 2 - THE WHY
+THE WHY
 1. What is important to you in your career?
 Being challenged and working with newer technologies with people that are passionate about what they do along with Joining a team which I can both contribute to and learn from.
 
