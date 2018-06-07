@@ -63,37 +63,37 @@
             {
                 id: 11,
                 name: 'King',
-                role: 0
+                job: 0
             },
             {
                 id: 1,
                 name: 'Queen',
-                role: 1
+                job: 1
             },
             {
                 id: 2,
                 name: 'Rook',
-                role: 4
+                job: 4
             },
             {
                 id: 3,
                 name: 'Knight',
-                role: 3
+                job: 3
             },
             {
                 id: 4,
                 name: 'Bishop',
-               role: 2
+               job: 2
             },
             {
                 id: 5,
                 name: 'Pawn',
-                role: 8
+                job: 8
             },
             {
                 id: 5,
                 name: 'Peasant',
-                role: 20
+                job: 20
             }
         ];
         const users = jsnUserArray;
@@ -107,7 +107,7 @@
 
          for(let user of users) {
              let option = document.createElement("option");
-             option.value = user.role;
+             option.value = user.job;
              option.text = user.name;
              selectList.appendChild(option);
          }
@@ -115,18 +115,18 @@
         function getSub() {
             let value = selectList.options[selectList.selectedIndex].value;
             let subsList =[];
-            let roleList = [];
+            let jobList = [];
             userList.innerHTML = '';
 
             for(let user of users) {
-                roleList.push(user.role);
+                jobList.push(user.job);
             }
-            let lowestRole = Math.max(...roleList);
+            let lowestjob = Math.max(...jobList);
             for(let user of users) {
-                if( user.role > value) {
+                if( user.job > value) {
                     subsList.push(`&nbsp;` + user.name);
                 }
-                else if (value == lowestRole) {
+                else if (value == lowestjob) {
                     subsList = ['No Subordinates'];
                 }
             }
